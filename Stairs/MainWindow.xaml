@@ -6,28 +6,33 @@
         xmlns:local="clr-namespace:Stairs"
         mc:Ignorable="d"
         Closing="MainWindow_Closing"
-        Title="Stairs" Height="750" Width="900" Loaded="Window_Loaded">
+        Title="Stairs" Height="750" Width="750" Loaded="Window_Loaded">
   <!--Replicating Calculator at https://www.calculator.net/stair-calculator.html -->
   <DockPanel>
-    <Menu DockPanel.Dock="Top">
-      <MenuItem Header ="_File">
-        <MenuItem Header ="_New"/>
-        <MenuItem Header ="_Open"/>
-        <MenuItem Header ="_Print" Click="OpenStairs_Click"/>
-        <MenuItem Header="E_xit" Click="mnuExit_Click"/>
-      </MenuItem>              
-      <MenuItem Header="_Help">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header ="_File">
+                <MenuItem Header ="_New"/>
+                <MenuItem Header ="_Open"/>
+                <MenuItem Header ="_Print" Click="OpenStairs_Click"/>
+                <MenuItem Header="E_xit" Click="mnuExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="Font"/>
+                <MenuItem Header="Color"/>
+            </MenuItem>
+
+            <MenuItem Header="_Help">
         <MenuItem Header="_About" Click ="mnuAbout_Click"/>
       </MenuItem>
     </Menu>
-    <Grid>
+        <ScrollViewer>
+    <Grid Margin="0,4,0,-4">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width ="5px"/>
+        <ColumnDefinition Width="3*"/>
         <ColumnDefinition Width="2*"/>
-        <ColumnDefinition Width="2*"/>
-        <ColumnDefinition Width="2*"/>
-        <ColumnDefinition Width="5*"/>                          
-        <ColumnDefinition Width ="5px"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width ="5px"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
         <RowDefinition Height="5px"/>
@@ -37,91 +42,57 @@
         <RowDefinition Height="1*"/>
         <RowDefinition Height="1*"/>
         <RowDefinition Height="1*"/>
-        <RowDefinition Height="7*"/>
-        <RowDefinition Height="5px"/>                       
+        <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5px"/>                       
       </Grid.RowDefinitions>
-      <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Rise"/>
-      <TextBlock Name="TxtRun" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Rise Goes Here"/>
-      <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Total Run"/>
-      <TextBlock Name="TxtTotalRise" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Total Run Goes Here"/>
-      <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Number of Steps"/>
-      <TextBlock Name="TxtNumberOfSteps" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Number of Steps Goes Here"/>
-      <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Stringer Length"/>
-      <TextBlock Name="TxtStringerLength" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Stringer Length Goes Here"/>
-      <TextBlock Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Stringer Height"/>
-      <TextBlock Name="TxtStringerHeight" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Stringer Height Goes Here"/>
-      <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Angle"/>
-      <TextBlock Name="TxtAngle" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Angle Goes Here"/>
-      <TabControl HorizontalAlignment="Left"
-                  VerticalAlignment="Top"                  
-                  Margin="12,12,0,0"
-                  Name="tabControl1"
-                  Grid.ColumnSpan ="2"
-                  Grid.Row="7" Grid.Column="1">
-        <!-- Use One Run Tab-->
-        <TabItem Header="One Run" Name="tabOneRun">
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5px"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>            
-            <ColumnDefinition Width="5px"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="5px"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5px"/>
-          </Grid.RowDefinitions>
-          <!--Column 1-->
-          <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Run"/>
-          <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Total Rise"/>
-          <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Rise"/>
-          <TextBlock Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Tread"/>
-          <TextBlock Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Headroom"/>
-          <TextBlock Grid.Row="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Mount"/>
+      <TextBlock Text="Rise"              Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+            <TextBox Name="TxtRise"       Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" Text="0" Background="LightYellow"/>
+                
+        <TextBlock Text="Run"              Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                <TextBox Name="TxtRun"       Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" Text="0" IsReadOnly="True" IsEnabled="False"/>
 
-          <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Text="Rise(step height)"/>
+                <TextBlock Text="Bottom Finish Adj." Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtBottomAdj"     Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" Text="0" Background="LightYellow"/>
+      
+        <TextBlock Text="Top Finish Adj." Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtTopAdj"     Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" Text="0" Background="LightYellow"/>
+      
+        <TextBlock Text="Calculated Rise Total" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtTotalRise"        Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" IsReadOnly="True"  IsEnabled="False" />
+        
+        <TextBlock Text="Number of Risers"     Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtNumberRisers"    Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" IsReadOnly="True"  IsEnabled="False"/>
 
-          <!--Column 2-->
-          <TextBox Grid.Row="1" Grid.Column="2" Name="TxtRun1" />
-          <TextBox Grid.Row="2" Grid.Column="2" Name="TxtTotalRise1" />
-          <RadioButton Grid.Row ="3" Grid.Column="2" Name="BtnFixedRise" GroupName="RiseType" Checked="Btn1_Checked">Fixed Rise Height</RadioButton>
-          <RadioButton Grid.Row ="4" Grid.Column="2" Name="BtnFixedStep" GroupName="RiseType" Checked="Btn1_Checked">Fixed Step Count</RadioButton>          
-          <TextBox Grid.Row="7" Grid.Column="2" Name="TxtRiseHeight" />
-          
-          
-          
-          <ListBox Grid.Row="1" Grid.Column="3" Name="LstUnits">
-            <ListBoxItem Content="inches" />
-            <ListBoxItem Content="cm" />
-          </ListBox>
-          <ListBox Grid.Row="2" Grid.Column="3" Name="LstRise">
-            <ListBoxItem Content="feet"/>
-            <ListBoxItem Content="cm"/>
-          </ListBox>
-          
+                <TextBlock Text="Rise Per Step" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtRiserTest"  Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" IsReadOnly="True"  IsEnabled="False"/>
+
+                <TextBlock Text="Run Per Step" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+                <TextBox Name="TxtRunPerStep" Text="10" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontSize="20" IsReadOnly="False" Background="LightYellow"/>
+
+                <TextBlock Text="Angle of Staircase (25 to 40 deg)" Grid.Row="9" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                <TextBox x:Name="TxtAngle" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" MaxLength="100" FontWeight="Bold" FontSize="20" IsReadOnly="True" IsEnabled="False"/>
+
+        
+        <Button Name="btn1" Background="Pink" 
+        BorderBrush="Black" BorderThickness="1" 
+                Grid.Row="10" Grid.Column="1"         
+                    Margin="10,10,10,10"
+                    
+        Click="OnClick1" 
+                
+                FontSize="20"
+                FontWeight="Bold">
+                ClickMe1
+            </Button>
+
+                <ListBox Name="ListItemsBox" Height="200" Grid.Row="1" Grid.Column="3" Grid.RowSpan="6" Margin="10,10,10,10"/>
+
+                <!--Margin="150,150,150,150"-->
         </Grid>
-        </TabItem>
-      </TabControl>
-    </Grid>
-  </DockPanel>
+        </ScrollViewer>
+    </DockPanel>
     
 </Window>
